@@ -1,0 +1,16 @@
+This is part of a project to simulate quantum error correction circuits in C++.
+The code is structured in two folders: simulator and hist.
+
+SIMULATOR: Where the main code is stored, with the libraries for the classes Complex, QState, QGate, etc.
+HIST: Where the histograms are stored together with the code to plot them (only esthetic).
+
+The file "main" is an example of bit and phase flip correction with a random state. It can be compiled with:
+1. cd simulator/
+2. g++ *.cpp -o main $(root-config --cflags --libs)
+3. ./main
+
+In simulator/main.cpp there is also (commented) the code used to run the simulations (50 values of p from 0 to 1 with 1000 states each).
+We warn that Shor code can take hours before ending the full simulation, while the others are way much faster.
+
+To see some histograms, one can use the file "draw". It let choose between 7 different histograms to plot. The .cpp file of "draw" is in the folder hist/.
+
