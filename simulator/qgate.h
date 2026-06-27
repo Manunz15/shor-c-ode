@@ -10,7 +10,7 @@ class QGate{
 	public:
 		int qubits;
 		std::vector<std::vector<Complex>> elems;
-		const char* save_folder = "precompiled_gates";
+		const char* save_folder = "simulator/precompiled_gates";
 		
 		// constructor and destructor
 		QGate(int = 0);

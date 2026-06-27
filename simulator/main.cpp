@@ -24,6 +24,8 @@ void sim_1D(bool(double), double, int, double, const char*);
 void sim_2D(bool(double, double), double, int, double, int, double, const char*);
 
 int main(){  
+	// CAUTION: THIS CODE WORK ONLY IF "MAIN.EXE" IS OUTSIDE THE FOLDER SIMULATOR/
+	
 	// IN THIS FILE THERE ARE THE CODE FOR SIMULATION (COMMENTED) AND AN EXAMPLE (UNCOMMENTED).
 	
 	double pmax = 1;
@@ -72,6 +74,19 @@ int main(){
 	std::cout << "\nThe corrected state: "<< corr_s2 << std::endl;
 	QState dec_s2 = pf_decoder(corr_s2);
 	std::cout << "\nThe decoded state (the original one multiplied by |00>): "<< dec_s2 << std::endl;
+	
+	
+	std::cout << "\n-----------\nSHOR CODE\n-----------"<< std::endl;
+	
+	QState enc_s3 = shor_encoder(s);     
+	std::cout << "\nThe encoded state: "<< enc_s3 << std::endl;
+	QState err_s3 = error(enc_s3, 1);
+	std::cout << "\nGeneral error on the first qubit: "<< err_s3 << std::endl;
+	QState corr_s3 = shor_corrector(err_s3);
+	std::cout << "\nThe corrected state: "<< corr_s3 << std::endl;
+	QState dec_s3 = shor_decoder(corr_s3);
+	std::cout << "\nThe decoded state: "<< dec_s3 << std::endl;
+	std::cout << "\nThis is equal to the original state within a phase: (corr_s == enc_s) = "<< (bool)(corr_s3 == enc_s3)<< std::endl;
 	return 0;
 }
 

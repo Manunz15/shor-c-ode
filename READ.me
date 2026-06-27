@@ -5,9 +5,10 @@ SIMULATOR: Where the main code is stored, with the libraries for the classes Com
 HIST: Where the histograms are stored together with the code to plot them (only esthetic).
 
 The file "main" is an example of bit and phase flip correction with a random state. It can be compiled with:
-1. cd simulator/
-2. g++ *.cpp -o main $(root-config --cflags --libs)
-3. ./main
+1. g++ simulator/*.cpp -o main $(root-config --cflags --libs)
+1. ./main
+
+CAUTION: "draw" and "main" must be runned in the main folder, NOT in simulator/ nor draw/
 
 In simulator/main.cpp there is also (commented) the code used to run the simulations (50 values of p from 0 to 1 with 1000 states each).
 We warn that Shor code can take hours before ending the full simulation, while the others are way much faster.
